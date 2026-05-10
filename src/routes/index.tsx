@@ -31,7 +31,7 @@ function Monogram() {
       <span className="font-serif text-2xl italic text-gold">T</span>
       <span className="h-px w-8 bg-gold/60" />
       <span className="font-sans tracking-luxe text-[10px] uppercase text-muted-foreground">
-        Tulip · Est. MMXXVI
+        Tulip
       </span>
     </div>
   );
@@ -213,6 +213,13 @@ function Index() {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
+                const form = e.currentTarget as HTMLFormElement;
+                const data = new FormData(form);
+                const name = (data.get("name") as string) || "";
+                const email = (data.get("email") as string) || "";
+                const why = (data.get("why") as string) || "";
+                const message = `Tulip — Request for Patronage%0A%0AName: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0A%0AWhy:%0A${encodeURIComponent(why)}`;
+                window.open(`https://wa.me/918296379446?text=${message}`, "_blank");
                 setSubmitted(true);
               }}
               className="mt-14 space-y-5 text-left"
@@ -223,6 +230,7 @@ function Index() {
                 </label>
                 <input
                   required
+                  name="name"
                   type="text"
                   className="mt-2 w-full border-b border-border bg-transparent py-3 font-serif text-lg text-foreground placeholder:text-muted-foreground/60 focus:border-gold focus:outline-none"
                   placeholder="As you wish to be addressed"
@@ -234,6 +242,7 @@ function Index() {
                 </label>
                 <input
                   required
+                  name="email"
                   type="email"
                   className="mt-2 w-full border-b border-border bg-transparent py-3 font-serif text-lg text-foreground placeholder:text-muted-foreground/60 focus:border-gold focus:outline-none"
                   placeholder="A private email"
@@ -244,6 +253,7 @@ function Index() {
                   A few words about why
                 </label>
                 <textarea
+                  name="why"
                   rows={3}
                   className="mt-2 w-full resize-none border-b border-border bg-transparent py-3 font-serif text-lg text-foreground placeholder:text-muted-foreground/60 focus:border-gold focus:outline-none"
                   placeholder="Optional. We read every word."
