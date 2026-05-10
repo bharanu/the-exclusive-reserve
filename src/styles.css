@@ -63,25 +63,37 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  /* Tulip — Himalayan luxury, dark cinematic */
+  --background: oklch(0.16 0.012 60);          /* deep charcoal warm */
+  --foreground: oklch(0.92 0.018 80);          /* parchment */
+  --card: oklch(0.19 0.012 60);
+  --card-foreground: oklch(0.92 0.018 80);
+  --popover: oklch(0.19 0.012 60);
+  --popover-foreground: oklch(0.92 0.018 80);
+  --primary: oklch(0.78 0.11 75);              /* muted gold */
+  --primary-foreground: oklch(0.16 0.012 60);
+  --secondary: oklch(0.24 0.014 60);
+  --secondary-foreground: oklch(0.92 0.018 80);
+  --muted: oklch(0.22 0.012 60);
+  --muted-foreground: oklch(0.66 0.02 75);
+  --accent: oklch(0.78 0.11 75);
+  --accent-foreground: oklch(0.16 0.012 60);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --border: oklch(0.92 0.018 80 / 14%);
+  --input: oklch(0.92 0.018 80 / 18%);
+  --ring: oklch(0.78 0.11 75 / 60%);
+
+  --gold: oklch(0.78 0.11 75);
+  --gold-soft: oklch(0.86 0.08 80);
+  --ink: oklch(0.10 0.008 60);
+  --gradient-vignette: radial-gradient(ellipse at center, transparent 0%, oklch(0.10 0.008 60 / 0.55) 60%, oklch(0.08 0.008 60 / 0.95) 100%);
+  --gradient-gold: linear-gradient(135deg, oklch(0.86 0.08 80), oklch(0.72 0.12 70));
+  --shadow-elegant: 0 30px 80px -20px oklch(0.05 0.01 60 / 0.6);
+
+  --font-serif: "Cormorant Garamond", "Cormorant", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -140,5 +152,37 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
+
+  .font-serif { font-family: var(--font-serif); }
+  .font-sans  { font-family: var(--font-sans); }
+
+  ::selection { background: var(--gold); color: var(--ink); }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .tracking-luxe { letter-spacing: 0.32em; }
+  .text-gold { color: var(--gold); }
+  .bg-vignette { background: var(--gradient-vignette); }
+  .bg-gold-gradient { background: var(--gradient-gold); }
+
+  @keyframes tulip-fade-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes tulip-fade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes tulip-shimmer {
+    0%, 100% { opacity: 0.55; }
+    50%      { opacity: 1; }
+  }
+  .animate-fade-up   { animation: tulip-fade-up 1.2s ease-out both; }
+  .animate-fade      { animation: tulip-fade 1.6s ease-out both; }
+  .animate-shimmer   { animation: tulip-shimmer 3.2s ease-in-out infinite; }
 }
