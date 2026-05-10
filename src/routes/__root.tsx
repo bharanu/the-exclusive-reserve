@@ -76,10 +76,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "By invitation. A curated house of Himalayan craft, story and provenance. 500 founding patrons." },
       { name: "author", content: "Tulip" },
       { property: "og:title", content: "Tulip — A Himalayan House of Provenance" },
-      { property: "og:description", content: "By invitation. 500 founding patrons." },
+      { property: "og:description", content: "By invitation. A curated house of Himalayan craft, story and provenance. 500 founding patrons." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Tulip — A Himalayan House of Provenance" },
+      { name: "twitter:description", content: "By invitation. A curated house of Himalayan craft, story and provenance. 500 founding patrons." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6daaf022-af9b-4cd1-ab75-80048225e7b2/id-preview-fa27ac9d--2e1edb3c-1302-4249-b54a-92ca07a9ba9c.lovable.app-1778425531825.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6daaf022-af9b-4cd1-ab75-80048225e7b2/id-preview-fa27ac9d--2e1edb3c-1302-4249-b54a-92ca07a9ba9c.lovable.app-1778425531825.png" },
     ],
     links: [
       {
